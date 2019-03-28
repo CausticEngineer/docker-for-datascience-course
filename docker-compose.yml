@@ -1,0 +1,17 @@
+version: '3'
+services:
+  jupiter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        buildno: 1
+    volumes:
+      - /home/caustic/Desktop/docker:/home/jovyan/
+    ports:
+      - "8888:8888"
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
